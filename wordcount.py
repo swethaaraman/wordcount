@@ -1,4 +1,3 @@
-#file = open("f", "r")
 file = open("/Users/swethaa/Desktop/Home/untitled.txt", "r")
 splitfile = file.read()
 splitfile = splitfile.lower()

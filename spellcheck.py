@@ -1,14 +1,16 @@
 import enchant
+import sys
 d = enchant.Dict("en_US")
-file = open("/Users/swethaa/Desktop/Home/hey.txt", "r")
-splitfile = file.read()
+with open(sys.argv[1], 'r') as file:
+    splitfile = file.read()
 convertlist = splitfile.split()
 
-misspelled = []
+errors = []
 for eachword in convertlist:
     if d.check(eachword):
         None
     else:
-        misspelled.append(eachword)
-print("The misspelled words are: ")
-print(misspelled)
+        errors.append(eachword)
+for eachmisspelledword in errors:
+    suggestion = d.suggest(eachmisspelledword)
+    print (eachmisspelledword, suggestion)
